@@ -1,0 +1,19 @@
+﻿  pch.cpp
+  nmccom.cpp
+C:\Users\muham\OneDrive\Tesis\Program\Library\NMCLIB04v64\NMCLIB04v64\nmccom.cpp(48,15): warning C4309: '=': truncation of constant value
+C:\Users\muham\OneDrive\Tesis\Program\Library\NMCLIB04v64\NMCLIB04v64\nmccom.cpp(82,15): warning C4309: '=': truncation of constant value
+C:\Users\muham\OneDrive\Tesis\Program\Library\NMCLIB04v64\NMCLIB04v64\nmccom.cpp(167,19): warning C4309: '=': truncation of constant value
+C:\Users\muham\OneDrive\Tesis\Program\Library\NMCLIB04v64\NMCLIB04v64\nmccom.cpp(171,19): warning C4309: '=': truncation of constant value
+C:\Users\muham\OneDrive\Tesis\Program\Library\NMCLIB04v64\NMCLIB04v64\nmccom.cpp(185,19): warning C4309: '=': truncation of constant value
+  picio.cpp
+  picservo.cpp
+  picstep.cpp
+C:\Users\muham\OneDrive\Tesis\Program\Library\NMCLIB04v64\NMCLIB04v64\picstep.cpp(466,41): warning C4305: '=': truncation from 'double' to 'float'
+C:\Users\muham\OneDrive\Tesis\Program\Library\NMCLIB04v64\NMCLIB04v64\picstep.cpp(481,48): warning C4244: '=': conversion from 'unsigned short' to 'byte', possible loss of data
+  sio_util.cpp
+     Creating library C:\Users\muham\OneDrive\Tesis\Program\Library\NMCLIB04v64\x64\Release\NMCLIB04v64.lib and object C:\Users\muham\OneDrive\Tesis\Program\Library\NMCLIB04v64\x64\Release\NMCLIB04v64.exp
+  Generating code
+  Previous IPDB not found, fall back to full compilation.
+  All 114 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
+  Finished generating code
+  NMCLIB04v64.vcxproj -> C:\Users\muham\OneDrive\Tesis\Program\Library\NMCLIB04v64\x64\Release\NMCLIB04v64.dll
