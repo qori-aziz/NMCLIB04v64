@@ -18,8 +18,15 @@ int main()
     Func_ServoStopMotor ServoStopMotor = LoadServoStopMotor(hModule);
     Func_ServoSetGain ServoSetGain = LoadServoSetGain(hModule);
 
-    int numberOfModules = NmcInit("COM3:", 19200);
+    int numberOfModules = NmcInit("COM1:", 19200);
     printf("Number of Modules detected: %d\n", numberOfModules);
+    if (numberOfModules == 0){
+        printf("failed to initialize. Shutdown.");
+        NmcShutdown();
+        FreeLibrary(hModule);
+        printf("Done.\n");
+    }
+
     if (NmcGetModType(3) == SERVOMODTYPE)
     {
         printf("OK\n");
