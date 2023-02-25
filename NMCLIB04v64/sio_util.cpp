@@ -10,6 +10,7 @@
 #include <stdio.h>
 #include "sio_util.h"
 #include <Windows.h>
+#include <stdlib.h>
 //---------------------------------------------------------------------------//
 // Global variables                                                          //
 //---------------------------------------------------------------------------//
@@ -36,9 +37,14 @@ extern "C" __declspec(dllexport) void ErrorPrinting(int f)
 //                  display control using ErrorPrinting().                   //
 //---------------------------------------------------------------------------//
 extern "C"  __declspec(dllexport) int ErrorMsgBox(const char* msgstr)
-{
+{   
+ 
+    size_t size = strlen(msgstr) + 1;
+    wchar_t* messageNew = new wchar_t[size];
+    size_t outSize;
+    mbstowcs_s(&outSize, messageNew, size, msgstr, size - 1);
     if (printerrors)
-        return MessageBox(NULL, msgstr, "", MB_TASKMODAL | MB_SETFOREGROUND);
+        return MessageBox(NULL, messageNew, NULL, MB_TASKMODAL | MB_SETFOREGROUND);
     else return(0);
 }
 
@@ -50,7 +56,11 @@ extern "C"  __declspec(dllexport) int ErrorMsgBox(const char* msgstr)
 //---------------------------------------------------------------------------//
 extern "C" __declspec(dllexport) int SimpleMsgBox(char* msgstr)
 {
-    return MessageBox(NULL, msgstr, "", MB_TASKMODAL | MB_SETFOREGROUND);
+    size_t size = strlen(msgstr) + 1;
+    wchar_t* messageNew = new wchar_t[size];
+    size_t outSize;
+    mbstowcs_s(&outSize, messageNew, size, msgstr, size - 1);
+    return MessageBox(NULL, messageNew, NULL, MB_TASKMODAL | MB_SETFOREGROUND);
 }
 
 
@@ -71,8 +81,13 @@ extern "C" __declspec(dllexport) HANDLE SioOpen(char* name, unsigned int baudrat
     DWORD winrate;
     char msgstr[50];
 
+    size_t size = strlen(name) + 1;
+    wchar_t* messageNew = new wchar_t[size];
+    size_t outSize;
+    mbstowcs_s(&outSize, messageNew, size, name, size - 1);
+
     //Open COM port as a file
-    ComHandle = CreateFile(name, GENERIC_READ | GENERIC_WRITE, 0, NULL,
+    ComHandle = CreateFile(messageNew, GENERIC_READ | GENERIC_WRITE, 0, NULL,
         OPEN_EXISTING, FILE_ATTRIBUTE_NORMAL, NULL);
 
 

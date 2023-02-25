@@ -1,3 +1,5 @@
+//  g++ -o hello .\firsttest.cpp .\picfunc.cpp 
+
 #include <stdio.h>
 #include <windows.h>
 #include <pthread.h>
@@ -43,7 +45,7 @@ int main()
 
         BOOL success = ServoLoadTraj(i, // addr = 2
                                      LOAD_POS | LOAD_VEL | LOAD_ACC | ENABLE_SERVO | START_NOW,
-                                     -5000,  // pos = 2000
+                                     5000,  // pos = 2000
                                      300000, // vel = 100,000
                                      1000,   // acc = 100
                                      0       // pwm = 0
